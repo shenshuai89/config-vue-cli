@@ -4,8 +4,8 @@
   "description": "config vue cli",
   "main": "index.js",
   "scripts": {
-    "build": "webpack  ./src/main.js --config ./build/webpack.config.js",
-    "serve": "webpack-dev-server --config ./build/webpack.config.js"
+    "build": "webpack --config ./build/webpack.prod.js",
+    "serve": "webpack-dev-server --config ./build/webpack.dev.js"
   },
   "author": "申帅",
   "license": "ISC",
@@ -18,15 +18,18 @@
     "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/runtime-corejs2": "^7.11.2",
+    "@intervolga/optimize-cssnano-plugin": "^1.0.6",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
     "cache-loader": "^4.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.1.0",
     "core-js": "3",
     "css-loader": "^4.2.2",
     "dart-sass": "^1.25.0",
     "file-loader": "^6.1.0",
     "html-webpack-plugin": "^4.4.1",
+    "mini-css-extract-plugin": "^0.11.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
@@ -35,6 +38,7 @@
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.12",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.3"
   }
 }

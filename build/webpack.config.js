@@ -19,6 +19,12 @@ module.exports = {
     // 设置在浏览器中所引用的url
     publicPath: "/",
   },
+  resolve: {
+    alias: {
+      vue$: "vue/dist/vue.runtime.esm.js",
+    },
+    extensions: [".js", ".vue"],
+  },
   module: {
     rules: [
       {
@@ -46,29 +52,6 @@ module.exports = {
         use: [
           {
             loader: "babel-loader",
-          },
-        ],
-      },
-      {
-        test: /\.(scss|sass)$/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: false,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              implementation: require("dart-sass"),
-            },
-          },
-          {
-            loader: "postcss-loader",
           },
         ],
       },
@@ -130,15 +113,9 @@ module.exports = {
       title: "vue-cli从零配置",
       template: path.resolve(__dirname, "../public/index.html"),
     }),
-    new CleanWebpackPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": {
-        VUE_APP_BASE_URL: JSON.stringify("http://localhost:3000"),
-      },
-    }),
   ],
   devServer: {
     hot: true,
